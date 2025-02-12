@@ -18,84 +18,70 @@
         <br />
 
 
-        <!--
-            TO-DO: Turn the nav menu into toggleable navigation pills. 
+        <!-- TO-DO: Turn the nav menu into toggleable navigation pills. 
                    Make the "Add Task" tab active by default.
         -->
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link active" href="#add">Add Task</a></li>
-            <li class="nav-item"><a class="nav link disabled" href="#tasks">Task List</a></li>
+        <ul class="nav nav-pills" id="taskTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="add-tab" data-bs-toggle="pill" href="#add" role="tab" aria-controls="add" aria-selected="true">Add Task</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tasks-tab" data-bs-toggle="pill" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false">Task List</a>
+            </li>
         </ul>
 
-        
-        <!--
-            TO-DO: Create a div that wraps BOTH tabs and their content inside it.
-                   Add tab panes for each tab.
-                   Make the "Add Task" tab active by default.
-                   Make the "Task List" tab fade in and out when clicked.
-        -->
-        <div id="add">
-            <br />
-
-            <!-- TO-DO: Use this div to create a basic card. Set its top margin to size 4. -->
-            <div class="card mt-4">
-
-                <!-- TO-DO: Make this div the card heading. Change its background and text color. -->
-                <div class="card-header bg-warning text-white">Add Task</div>
-
-                <!-- TO-DO: Make this div the card body. -->
-                <div class="card-body">
-                    <form id="taskForm">
-                        <div class="mb-3">
-
-                            <!-- TO-DO: Create a stacked form with proper form styling and correct padding. -->
-                            <label for="taskName" class="form-label">Task Name</label>
-                            <input type="text" id="taskName" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-
-                            <!-- TO-DO: Create a stacked form with proper form styling and correct padding. -->
-                            <label for="taskDescription" class="form-label">Task Description</label>
-                            <textarea id="taskDescription" class="form-control" rows="3" required></textarea>
-
-                        </div>
-
-                        <!-- TO-DO: Style the submit button. -->
-                        <button type="submit" class="btn btn-primary">Add Task</button>
-
-                    </form>
+        <div class="tab-content" id="taskTabsContent">
+            <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+                <br />
+                <!-- TO-DO: Use this div to create a basic card. Set its top margin to size 4. -->
+                <div class="card mt-4">
+                    <!-- TO-DO: Make this div the card heading. Change its background and text color. -->
+                    <div class="card-header bg-warning text-white">Add Task</div>
+                    <!-- TO-DO: Make this div the card body. -->
+                    <div class="card-body">
+                        <form id="taskForm">
+                            <div class="mb-3">
+                                <!-- TO-DO: Create a stacked form with proper form styling and correct padding. -->
+                                <label for="taskName" class="form-label">Task Name</label>
+                                <input type="text" id="taskName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <!-- TO-DO: Create a stacked form with proper form styling and correct padding. -->
+                                <label for="taskDescription" class="form-label">Task Description</label>
+                                <textarea id="taskDescription" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <!-- TO-DO: Style the submit button. -->
+                            <button type="submit" class="btn btn-primary">Add Task</button>
+                        </form>
+                    </div>
                 </div>
-            </div>     
+            </div>
+            <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+                <br />
+                <!-- TO-DO: Use this div to create a basic card. Set its top margin to size 4. -->
+                <div class="card mt-4">
+                    <!-- TO-DO: Make this div the card heading. Change its background and text color. -->
+                    <div class="card-header bg-primary text-white">Task List</div>
+                    <!-- TO-DO: Make this div the card body. -->
+                    <div class="card-body">
+                        <!-- TO-DO: Style the table. -->
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Task Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="taskList">
+                                <!-- Tasks will be dynamically added here. -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div id="tasks">
-            <br />
-
-            <!-- TO-DO: Use this div to create a basic card. Set its top margin to size 4. -->
-<div class="card mt-4">
-
-    <!-- TO-DO: Make this div the card heading. Change its background and text color. -->
-    <div class="card-header bg-primary text-white">Task List</div>
-
-    <!-- TO-DO: Make this div the card body. -->
-    <div class="card-body">
-
-        <!-- TO-DO: Style the table. -->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Task Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="taskList">
-                <!-- Tasks will be dynamically added here. -->
-            </tbody>
-        </table>
-    </div>
-</div>
 
     <script src="js/add.js"></script>
 
